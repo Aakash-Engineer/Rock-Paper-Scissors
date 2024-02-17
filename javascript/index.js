@@ -42,7 +42,7 @@ function gameWinner(playerSelection, computerSelection) {
 
 
 function playGame(){
-    let userInput=prompt('Enter your choice: ').toLocaleLowerCase()
+    let userInput=prompt('Enter rock or paper or scissor: ').toLocaleLowerCase()
     let compuerInput=getComputerCoice();
     let winner=gameWinner(userInput, compuerInput)
     console.log('User choice     : ', userInput);
