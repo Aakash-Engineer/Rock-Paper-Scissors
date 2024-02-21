@@ -2,11 +2,34 @@
 <html>
     <head>
         <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
 
     <body>
-        <h1>This is a simple rock paper scissor game</h1>
-        <h1>Open developer console to see output</h1>
+        <header id="header">
+            <h1>Rock Paper Scissor</h1>
+        </header>
+        <main id="main">
+            <div id="container">
+                <div id="result_container">
+                    <div id="winner_container">Start the Game</div>
+                    <div id="score_container">
+                        <ul>
+                            <li>Win <span id="win">0</span></li>
+                            <li>Draw <span id="draw">0</span></li>
+                            <li>Lose <span id="lose">0</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="button_container">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissor">Scissor</button>
+                </div>
+            </div>
+        </main>
         <script src="javascript/index.js"></script>
     </body>
 </html>

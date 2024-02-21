@@ -1,3 +1,28 @@
+let playerScore = 0;
+let computerScore = 0;
+let draw = 0;
+
+
+function updateScore(winner) {
+    switch(winner){
+        case 'You win: rock beats scissor':
+        case 'You win: paper beats rock':
+        case 'You win: scissor beats paper':
+            playerScore++;
+            break;
+        case 'You lose: rock beats scissor':
+        case 'You lose: paper beats rock':
+        case 'You lose: scissor beats paper':
+            computerScore++;
+            break;
+        case 'A tie':
+            draw++;
+            break;
+        default:
+            break;
+    }   
+}
+
 function getComputerCoice(){
     let choices=['rock', 'paper', 'scissor'];
     let randomNum = getRandomInt(0, 2);
@@ -41,13 +66,26 @@ function gameWinner(playerSelection, computerSelection) {
 }
 
 
-function playGame(){
-    let userInput=prompt('Enter rock or paper or scissor: ').toLocaleLowerCase()
+function playGame(n){
+    let userInput=n;
     let compuerInput=getComputerCoice();
     let winner=gameWinner(userInput, compuerInput)
-    console.log('User choice     : ', userInput);
-    console.log('computer choice : ', compuerInput);
-    console.log(winner)
+    let winnerContainer=document.querySelector('#winner_container');
+    winnerContainer.innerHTML=winner;
+    updateScore(winner);
+    let playerWinContainer=document.querySelector('#win');
+    let playerDrawContainer=document.querySelector('#draw');
+    let playerLoseContainer=document.querySelector('#lose');
 
+    playerWinContainer.innerHTML=playerScore;
+    playerDrawContainer.innerHTML=draw;
+    playerLoseContainer.innerHTML=computerScore;
 }
-playGame()
+
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissor = document.querySelector('#scissor');
+
+rock.addEventListener('click', ()=>playGame('rock'))
+paper.addEventListener('click',()=> playGame('paper'))
+scissor.addEventListener('click', ()=>playGame('scissor'))
